@@ -10,6 +10,17 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="9dp">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="295dp"
+        android:layout_height="295dp"
+        android:src="@drawable/tea_for_the_tillerman_album_cover"
+        app:layout_constraintBottom_toTopOf="@+id/author"
+        app:layout_constraintEnd_toStartOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,UnknownId" />
+
     <TextView
         android:id="@+id/songTitle"
         android:layout_width="317dp"
@@ -17,35 +28,10 @@
         android:text="Father and Son"
         android:textColor="#F8F4F4"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/timeBar"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/author" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="295dp"
-        android:layout_height="295dp"
-        android:src="@drawable/tea_for_the_tillerman_album_cover"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.334"
-        tools:ignore="MissingConstraints,UnknownId" />
-
-    <TextView
-        android:id="@+id/author"
-        android:layout_width="264dp"
-        android:layout_height="18dp"
-        android:text="Yusuf / Cat Stevens"
-        android:textColor="#A6A5A5"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/songTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="MissingConstraints" />
 
     <SeekBar
         android:id="@+id/timeBar"
@@ -53,13 +39,10 @@
         android:layout_height="22dp"
         android:indeterminate="false"
         android:progress="25"
-        android:progressBackgroundTint="#FFFFFF"
-        android:progressTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/timeDisplay2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/songTitle"
+        app:layout_constraintStart_toEndOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -71,9 +54,8 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/buttonPrevious"
         app:layout_constraintEnd_toStartOf="@+id/timeDisplay"
-        app:layout_constraintHorizontal_bias="0.328"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/divider"
         app:layout_constraintTop_toBottomOf="@+id/timeBar" />
 
     <TextView
@@ -83,8 +65,9 @@
         android:text="3:41"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/buttonPrevious"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNext"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/timeDisplay2"
         app:layout_constraintTop_toBottomOf="@+id/timeBar" />
 
@@ -95,9 +78,10 @@
         android:background="@color/black"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/timeDisplay"
-        app:layout_constraintStart_toEndOf="@+id/timeDisplay2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNext"
+        app:layout_constraintStart_toEndOf="@+id/buttonPrevious"
         app:layout_constraintTop_toBottomOf="@+id/timeBar"
+        app:layout_constraintVertical_bias="0.731"
         app:srcCompat="@android:drawable/ic_media_play"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -108,11 +92,11 @@
         android:background="@color/black"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/timeDisplay"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toEndOf="@+id/timeDisplay2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNext"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonPrevious"
         app:layout_constraintTop_toBottomOf="@+id/timeBar"
-        app:layout_constraintVertical_bias="0.503"
+        app:layout_constraintVertical_bias="0.731"
         app:srcCompat="@android:drawable/ic_media_pause"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -123,10 +107,10 @@
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.365"
-        app:layout_constraintStart_toEndOf="@+id/buttonPlay"
-        app:layout_constraintTop_toBottomOf="@+id/timeBar"
-        app:layout_constraintVertical_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pauseButton"
+        app:layout_constraintTop_toBottomOf="@+id/timeDisplay"
+        app:layout_constraintVertical_bias="0.692"
         app:srcCompat="@android:drawable/ic_media_next"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -136,10 +120,11 @@
         android:layout_height="60dp"
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonPlay"
-        app:layout_constraintHorizontal_bias="0.637"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeBar"
+        app:layout_constraintEnd_toStartOf="@+id/pauseButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/timeDisplay2"
+        app:layout_constraintVertical_bias="0.692"
         app:srcCompat="@android:drawable/ic_media_previous"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -148,12 +133,11 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/timeBar"
         app:layout_constraintEnd_toStartOf="@+id/lyrics"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/divider"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348"
         app:srcCompat="@android:drawable/ic_menu_set_as"
         app:tint="#FFFFFF"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -163,12 +147,11 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/timeBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/lyrics"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348"
         app:srcCompat="@android:drawable/ic_menu_sort_by_size"
         app:tint="#FFFFFF"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -178,55 +161,81 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/timeBar"
         app:layout_constraintEnd_toStartOf="@+id/songList"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/share"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348"
         app:srcCompat="?android:attr/actionModeFindDrawable"
         app:tint="#FFFFFF"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="264dp"
+        android:layout_height="18dp"
+        android:text="Yusuf / Cat Stevens"
+        android:textColor="#A6A5A5"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/songTitle"
+        app:layout_constraintEnd_toStartOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="409dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="250dp"
-        android:layout_height="17dp"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:foregroundTint="#FFFFFF"
         android:progress="70"
+        android:progressBackgroundTint="#FFFFFF"
         android:progressTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/share"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/share" />
+        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton3"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/songList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
-        app:layout_constraintTop_toBottomOf="@+id/songList"
+        app:layout_constraintStart_toEndOf="@+id/progressBar2"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_lock_silent_mode_off"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageButton4"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/progressBar"
+        app:layout_constraintBottom_toTopOf="@+id/share"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/share"
+        app:layout_constraintStart_toEndOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_lock_silent_mode"
-        app:tint="#FFFFFF"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        app:tint="#FFFFFF" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
